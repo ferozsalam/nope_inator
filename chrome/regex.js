@@ -2,6 +2,11 @@ $(":header").each(function(index) {
     parseChildNodes(this);
 });
 
+/* Credit for the below goes to
+ * http://james.padolsey.com/javascript/replacing-text-in-the-dom-its-not-that-simple/
+ * which helped paper over my extremely patchy Javascript experience
+ */
+
 function parseChildNodes(node) {
     var next;
     if (node.nodeType === 1) {
@@ -14,8 +19,6 @@ function parseChildNodes(node) {
     } 
     else if (node.nodeType === 3) {
         var new_text = $(node).text().replace(/\?(.*)/, "? Nope.");
-        console.log("Existing text: " + $(node).text());
-        console.log("Suggested replacement: " + new_text);
         if (new_text !== $(node).text()) {
             wrapMatchesInNode(node);
         }
@@ -28,7 +31,6 @@ function wrapMatchesInNode(textNode) {
     temp.innerHTML = textNode.data.replace(/\?(.*)/, '? Nope.');
  
     while (temp.firstChild) {
-        console.log(temp.firstChild.nodeType);
         textNode.parentNode.insertBefore(temp.firstChild, textNode);
     }
     textNode.parentNode.removeChild(textNode);
