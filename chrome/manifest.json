@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+
+  "name": "Nope-inator",
+  "description": "Tired of lazily titled, highly speculative articles? The Nope-inator changes all their titles to tell you how it really is.",
+  "version": "0.1.2",
+
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["jquery.min.js", "regex.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": { "16": "icon16.png",
+             "48": "icon48.png",
+             "128": "icon128.png" }
+}
