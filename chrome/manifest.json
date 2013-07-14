@@ -3,7 +3,7 @@
 
   "name": "Nope-inator",
   "description": "Tired of lazily titled, highly speculative articles? The Nope-inator changes all their titles to tell you how it really is.",
-  "version": "0.1.2",
+  "version": "0.1.3",
 
   "permissions": [
     "activeTab"
